@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 设置上传文件默认最大值 -->
+    <constant name="struts.multipart.maxSize" value="92700000"></constant>
+    <package name="filemanage" extends="struts-default">
+    	<action name="file" class="com.momo.t7.action.FileAction">
+	    	<interceptor-ref name="defaultStack">
+		    	<param name="fileUpload.allowedExtensions">.txt,.zip,.jpg,.png</param>
+		    	<param name="fileUpload.maximumSize">20000000</param>
+	    	</interceptor-ref>
+	    	<result name="uploadSuccess">/jsp/show.jsp</result>
+	    	<result name="input">index.jsp</result>
+    	</action>
+    </package>
+    </struts>
