@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.momo.t2.bean.User" table="t_user">
+	<!-- 主键 -->
+		<id name="userId" column="userId" type="integer">
+			<generator class="native"></generator>
+		</id>
+		<!-- 其他属性 -->
+		<property name="userName" column="userName" type="string"></property>
+		<property name="userSex" column="userSex" type="string"></property>
+		<property name="brithday" column="brithday" type="string"></property>
+		<property name="address" column="address" type="string"></property>
+		<property name="phone" column="phone" type="string"></property>
+		<property name="deptId" column="deptId" type="integer"></property>
+		<!--  一一关系映射-->
+		<one-to-one name="dept" class="com.qhit.lh.gr3.momo.t2.bean.Dept" cascade="all"></one-to-one>
+	</class>
+</hibernate-mapping>

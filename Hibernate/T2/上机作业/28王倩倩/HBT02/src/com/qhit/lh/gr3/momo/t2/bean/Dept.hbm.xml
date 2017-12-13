@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.momo.t2.bean.Dept" table="t_dept">
+	<!-- 主键 -->
+		<id name="deptId" column="deptId" type="integer">
+			<generator class="foreign">
+			<param name="property">user</param>
+			</generator>
+		</id>
+		<!-- 成员属性 -->
+		<property name="deptName" column="deptName" type="string"></property>
+		<property name="password" column="password" type="string"></property>
+
+		<!-- 一一对应映射 -->
+		<one-to-one name="user" class="com.qhit.lh.gr3.momo.t2.bean.User" cascade="all"></one-to-one>
+	</class>
+</hibernate-mapping>
