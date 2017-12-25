@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class name="com.qhit.lh.gr3.momo.t7.bean.Emp" table="t_emp" schema="dbo" catalog="HBT1">
+        <id name="empId" type="java.lang.Integer">
+            <column name="empId" />
+            <generator class="native"></generator>
+        </id>
+        <property name="empName" type="java.lang.String">
+            <column name="empName" length="25" not-null="true" />
+        </property>
+        <property name="empSex" type="java.lang.String">
+            <column name="empSex" length="2" not-null="true" />
+        </property>
+        <property name="brithday" type="java.lang.String">
+            <column name="brithday" length="25" not-null="true" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone" length="25" not-null="true" />
+        </property>
+        <property name="deptId" type="java.lang.Integer">
+            <column name="deptId" />
+        </property>
+        <one-to-one name="user" class="com.qhit.lh.gr3.momo.t7.bean.User" cascade="all"></one-to-one>
+   
+    </class>
+</hibernate-mapping>

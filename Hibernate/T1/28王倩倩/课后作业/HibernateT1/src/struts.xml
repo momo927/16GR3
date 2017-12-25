@@ -1,0 +1,12 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<package name="UserManager" extends="struts-default">
+	<action name="*User" class="com.momo.t1.action.UserAction">
+		<result name="success">show.jsp</result>
+	</action>
+</package>
+
+</struts>
