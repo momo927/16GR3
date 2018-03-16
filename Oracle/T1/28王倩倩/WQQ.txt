@@ -1,0 +1,46 @@
+SQL> select * from SGA;
+select * from SGA
+              *
+第 1 行出现错误: 
+ORA-00942: 表或视图不存在 
+
+
+SQL> select member from v$logfile;
+
+MEMBER                                                                          
+--------------------------------------------------------------------------------
+E:\APP\MOMO\ORADATA\ORCL\REDO03.LOG                                             
+E:\APP\MOMO\ORADATA\ORCL\REDO02.LOG                                             
+E:\APP\MOMO\ORADATA\ORCL\REDO01.LOG                                             
+
+SQL> show sga;
+
+Total System Global Area 1653518336 bytes                                       
+Fixed Size                  2176288 bytes                                       
+Variable Size             989858528 bytes                                       
+Database Buffers          654311424 bytes                                       
+Redo Buffers                7172096 bytes                                       
+SQL> select * from dept;
+select * from dept
+              *
+第 1 行出现错误: 
+ORA-00942: 表或视图不存在 
+
+
+SQL> select * from dept
+  2  
+SQL> select * from emp;
+select * from emp
+              *
+第 1 行出现错误: 
+ORA-00942: 表或视图不存在 
+
+
+SQL> select * from user;
+select * from user
+              *
+第 1 行出现错误: 
+ORA-00903: 表名无效 
+
+
+SQL> spool off;

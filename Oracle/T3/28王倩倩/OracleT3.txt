@@ -1,0 +1,160 @@
+SQL> create table dept2(
+  2  did integer primary key,
+  3  dname varchar2(20),
+  4  tel varchar2(22),
+  5  empid integer
+  6  );
+
+表已创建。
+
+SQL> creat table emp2(
+SP2-0734: 未知的命令开头 "creat tabl..." - 忽略了剩余的行。
+SQL> create table emp2(
+  2  empid integer primary key,
+  3  empname varchar2(20),
+  4  age integer,
+  5  did integer
+  6  );
+
+表已创建。
+
+SQL> ttitle center '添加数据';
+SQL> insert into emp2 values(1,'小小',18,1);
+
+已创建 1 行。
+
+SQL> drop table dept2;
+
+表已删除。
+
+SQL>  create table dept2(
+  2    2  did integer primary key,
+  3    3  dname varchar2(20),
+  4    4  tel varchar2(22),
+  5    5  empid integer
+  6  )
+  7  
+SQL>   create table dept2(
+  2    2    2  did integer primary key,
+  3    3    3  dname varchar2(20),
+  4    4    4  tel varchar2(22)
+  5  );
+  2    2  did integer primary key,
+  *
+第 2 行出现错误: 
+ORA-00904: : 标识符无效 
+
+
+SQL> create table dept2(
+  2    2    2    2  did integer primary key,
+  3    3    3    3  dname varchar2(20),
+  4    4    4    4  tel varchar2(22)
+  5    5  );
+  2    2    2  did integer primary key,
+  *
+第 2 行出现错误: 
+ORA-00904: : 标识符无效 
+
+
+SQL> create table dept2(
+  2  did integer primary key,
+  3  dname varchar2(20),
+  4  tel varchar2(20),
+  5  loc varchar2(50)
+  6  );
+
+表已创建。
+
+SQL>  insert into emp2 values(1,'小明',20,1);
+ insert into emp2 values(1,'小明',20,1)
+*
+第 1 行出现错误: 
+ORA-00001: 违反唯一约束条件 (SYS.SYS_C0010815) 
+
+
+SQL>  insert into emp2 values(2,'小红',19,2);
+
+已创建 1 行。
+
+SQL> insert into emp2 values(3,'小明',20,1);
+
+已创建 1 行。
+
+SQL> insert into dept2 values(1,'董事部','1111111','北京');
+
+已创建 1 行。
+
+SQL> insert into dept2 values(2,'理事部','1234567','杭州');
+
+已创建 1 行。
+
+SQL> ttitle center '部门员工表';
+SQL> select did,dname,empname,age from emp2,dept2 where emp2.did = dept2.did;
+select did,dname,empname,age from emp2,dept2 where emp2.did = dept2.did
+       *
+第 1 行出现错误: 
+ORA-00918: 未明确定义列 
+
+
+SQL>  select dept2.did,dept2.dname,emp2.empname,emp2.age from emp2,dept2 where emp2.did = dept2.did;
+
+                                   部门员工表                                   
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+EMPNAME                                         AGE                             
+---------------------------------------- ----------                             
+         1 董事部                                                               
+小小                                             18                             
+                                                                                
+         2 理事部                                                               
+小红                                             19                             
+                                                                                
+         1 董事部                                                               
+小明                                             20                             
+
+                                   部门员工表                                   
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+EMPNAME                                         AGE                             
+---------------------------------------- ----------                             
+                                                                                
+
+SQL> ttitle center '员工表';
+SQL> btitle '制表人：王倩倩';
+SQL> select * from emp2 order by age asc;
+
+                                     员工表                                     
+     EMPID EMPNAME                                         AGE        DID       
+---------- ---------------------------------------- ---------- ----------       
+         1 小小                                             18          1       
+         2 小红                                             19          2       
+         3 小明                                             20          1       
+
+
+
+
+
+
+                                 制表人：王倩倩
+
+SQL> update emp2 set age = age +2 where empname = '小明';
+
+已更新 1 行。
+
+SQL> select * from emp2 order by age asc;
+
+                                     员工表                                     
+     EMPID EMPNAME                                         AGE        DID       
+---------- ---------------------------------------- ---------- ----------       
+         1 小小                                             18          1       
+         2 小红                                             19          2       
+         3 小明                                             22          1       
+
+
+
+
+
+
+                                 制表人：王倩倩
+
+SQL> spool off;
