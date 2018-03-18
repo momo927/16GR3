@@ -1,0 +1,353 @@
+SQL> ------开始啦-------
+SQL> ------------------------数学函数
+SQL> select abs(-12) from dual;
+
+  ABS(-12)                                                                      
+----------                                                                      
+        12                                                                      
+
+SQL> select ceil(520.1314) from dual;
+
+CEIL(520.1314)                                                                  
+--------------                                                                  
+           521                                                                  
+
+SQL> select floor(520.1314) from dual;
+
+FLOOR(520.1314)                                                                 
+---------------                                                                 
+            520                                                                 
+
+SQL> select power(2,8) from dual;
+
+POWER(2,8)                                                                      
+----------                                                                      
+       256                                                                      
+
+SQL> select round(520.1314765,4) from dual;
+
+ROUND(520.1314765,4)                                                            
+--------------------                                                            
+            520.1315                                                            
+
+SQL> select trunc(520.1314765,4) from dual;
+
+TRUNC(520.1314765,4)                                                            
+--------------------                                                            
+            520.1314                                                            
+
+SQL> select sqrt(4) from dual;
+
+   SQRT(4)                                                                      
+----------                                                                      
+         2                                                                      
+
+SQL> select sign(5) from dual;
+
+   SIGN(5)                                                                      
+----------                                                                      
+         1                                                                      
+
+SQL> -----正号是1，负号是-1
+SQL> --------------------------------字符函数
+SQL> select concat(tom,cat) from dual;
+select concat(tom,cat) from dual
+                  *
+第 1 行出现错误: 
+ORA-00904: "CAT": 标识符无效 
+
+
+SQL> select concat('holle','tom') from dual;
+
+CONCAT('HOLLE','                                                                
+----------------                                                                
+holletom                                                                        
+
+SQL> select substr('myeclips','0',2) from dual;
+
+SUBS                                                                            
+----                                                                            
+my                                                                              
+
+SQL> select Itrim('1    2345','') from dual;
+select Itrim('1    2345','') from dual
+       *
+第 1 行出现错误: 
+ORA-00904: "ITRIM": 标识符无效 
+
+
+SQL> select itrim(1     23456,'') from dual;
+select itrim(1     23456,'') from dual
+                   *
+第 1 行出现错误: 
+ORA-00907: 缺失右括号 
+
+
+SQL> select itrim(   123456) from dual;
+select itrim(   123456) from dual
+       *
+第 1 行出现错误: 
+ORA-00904: "ITRIM": 标识符无效 
+
+
+SQL> select ltrim(    123456) from dual;
+
+LTRIM(123456                                                                    
+------------                                                                    
+123456                                                                          
+
+SQL> select ltrim(1     23456,'') from dual;
+select ltrim(1     23456,'') from dual
+                   *
+第 1 行出现错误: 
+ORA-00907: 缺失右括号 
+
+
+SQL> select ltrim(1     23456,'1') from dual;
+select ltrim(1     23456,'1') from dual
+                   *
+第 1 行出现错误: 
+ORA-00907: 缺失右括号 
+
+
+SQL> select length('hello,my mom') from dual;
+
+LENGTH('HELLO,MYMOM')                                                           
+---------------------                                                           
+                   12                                                           
+
+SQL> select translate('life','f','v') from dual;
+
+TRANSLAT                                                                        
+--------                                                                        
+live                                                                            
+
+SQL> select instr('hello','o') from dual;
+
+INSTR('HELLO','O')                                                              
+------------------                                                              
+                 5                                                              
+
+SQL>  select replace('hibernate','n','m') from dual;
+
+REPLACE('HIBERNATE                                                              
+------------------                                                              
+hibermate                                                                       
+
+SQL> -------------------------------------日期函数
+SQL>  select sysdate from dual;
+
+SYSDATE                                                                         
+--------------                                                                  
+16-3月 -18                                                                      
+
+SQL> select months_between(sysdate,to_date('1996-09-27','yyyy-mm-dd')) from dual;
+
+MONTHS_BETWEEN(SYSDATE,TO_DATE('1996-09-27','YYYY-MM-DD'))                      
+----------------------------------------------------------                      
+                                                257.666948                      
+
+SQL> select add_months(sysdate,3) from dual;
+
+ADD_MONTHS(SYS                                                                  
+--------------                                                                  
+16-6月 -18                                                                      
+
+SQL> select next_day(sysdate,14) from dual;
+select next_day(sysdate,14) from dual
+                        *
+第 1 行出现错误: 
+ORA-01846: 周中的日无效 
+
+
+SQL>  select next_day(sysdate,2) from dual;
+
+NEXT_DAY(SYSDA                                                                  
+--------------                                                                  
+19-3月 -18                                                                      
+
+SQL> select last_day(sysdate) from dual;
+
+LAST_DAY(SYSDA                                                                  
+--------------                                                                  
+31-3月 -18                                                                      
+
+SQL> --------------------------------------转换函数
+SQL>  select to_char(sysdate,'yyyy-mm-dd by am hh:mi:ss') from dual;
+ select to_char(sysdate,'yyyy-mm-dd by am hh:mi:ss') from dual
+                        *
+第 1 行出现错误: 
+ORA-01821: 日期格式无法识别 
+
+
+SQL> select to_char(sysdate,'yyyy-mm-dd dy am hh:mi:ss') from dual;
+
+TO_CHAR(SYSDATE,'YYYY-MM-DDDYAMHH:MI:SS')                                       
+------------------------------------------------------------------------------  
+2018-03-16 星期五 下午 04:24:27                                                 
+
+SQL> select number('$12,3456','$99,999') from dual;
+select number('$12,3456','$99,999') from dual
+       *
+第 1 行出现错误: 
+ORA-00936: 缺失表达式 
+
+
+SQL> select number('$12,3456','$99,9999') from dual;
+select number('$12,3456','$99,9999') from dual
+       *
+第 1 行出现错误: 
+ORA-00936: 缺失表达式 
+
+
+SQL> select number('$12,345','$99,999') from dual;
+select number('$12,345','$99,999') from dual
+       *
+第 1 行出现错误: 
+ORA-00936: 缺失表达式 
+
+
+SQL> select number(‘12,345','$99,999') from dual;
+ERROR:
+ORA-01756: 引号内的字符串没有正确结束 
+
+
+SQL> select to_number('$12,345.6','$99,999.9') from dual;
+
+TO_NUMBER('$12,345.6','$99,999.9')                                              
+----------------------------------                                              
+                           12345.6                                              
+
+SQL> ---------------------------------------其他查询方式
+SQL> -----创建表-------
+SQL> create table gr3(
+  2  id integer primary key,
+  3  name varchar2(20),
+  4  tel varchar2(20)
+  5  );
+
+表已创建。
+
+SQL> insert into gr3 values(1,'卫云亮'，'');
+
+已创建 1 行。
+
+SQL> insert into gr3 values(2,'春杰'，'1111111');
+
+已创建 1 行。
+
+SQL> insert into gr3 values(3,'陈益辉'，'222222');
+
+已创建 1 行。
+
+SQL> insert into gr3 values（4,'董文俊'，'333333');
+
+已创建 1 行。
+
+SQL> insert into gr3 values(7,'高明月'，'4568481');
+
+已创建 1 行。
+
+SQL> insert into gr3 values(13,'李方圆'，'');
+
+已创建 1 行。
+
+SQL> insert into gr3 values(21,'renboyi'，'');
+
+已创建 1 行。
+
+SQL> ttitle center '高软三班学生表';
+SQL> btitle '制作人：王倩倩';
+SQL> select * from gr3;
+
+                                 高软三班学生表                                 
+        ID NAME                                                                 
+---------- ----------------------------------------                             
+TEL                                                                             
+----------------------------------------                                        
+         1 卫云亮                                                               
+                                                                                
+                                                                                
+         2 春杰                                                                 
+1111111                                                                         
+                                                                                
+         3 陈益辉                                                               
+                                 制作人：王倩倩
+
+                                 高软三班学生表                                 
+        ID NAME                                                                 
+---------- ----------------------------------------                             
+TEL                                                                             
+----------------------------------------                                        
+222222                                                                          
+                                                                                
+         4 董文俊                                                               
+333333                                                                          
+                                                                                
+         7 高明月                                                               
+4568481                                                                         
+                                 制作人：王倩倩
+
+                                 高软三班学生表                                 
+        ID NAME                                                                 
+---------- ----------------------------------------                             
+TEL                                                                             
+----------------------------------------                                        
+                                                                                
+        13 李方圆                                                               
+                                                                                
+                                                                                
+        21 renboyi                                                              
+                                                                                
+                                                                                
+                                 制作人：王倩倩
+
+已选择7行。
+
+SQL> select  g.id,g.name,nvl(g.tel,'无') from gr3 g;
+
+                                 高软三班学生表                                 
+        ID NAME                                                                 
+---------- ----------------------------------------                             
+NVL(G.TEL,'无')                                                                 
+----------------------------------------                                        
+         1 卫云亮                                                               
+无                                                                              
+                                                                                
+         2 春杰                                                                 
+1111111                                                                         
+                                                                                
+         3 陈益辉                                                               
+                                 制作人：王倩倩
+
+                                 高软三班学生表                                 
+        ID NAME                                                                 
+---------- ----------------------------------------                             
+NVL(G.TEL,'无')                                                                 
+----------------------------------------                                        
+222222                                                                          
+                                                                                
+         4 董文俊                                                               
+333333                                                                          
+                                                                                
+         7 高明月                                                               
+4568481                                                                         
+                                 制作人：王倩倩
+
+                                 高软三班学生表                                 
+        ID NAME                                                                 
+---------- ----------------------------------------                             
+NVL(G.TEL,'无')                                                                 
+----------------------------------------                                        
+                                                                                
+        13 李方圆                                                               
+无                                                                              
+                                                                                
+        21 renboyi                                                              
+无                                                                              
+                                                                                
+                                 制作人：王倩倩
+
+已选择7行。
+
+SQL> spool off;
