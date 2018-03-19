@@ -1,0 +1,20 @@
+#MyEclipse Hibernate Properties
+#Wed Jan 10 09:09:27 CST 2018
+genBasicCompId=false
+sessionFactoryName=com.qhit.lh.gr3.momo.exam.common.utils.HibernateSessionFactory
+profile=
+daoSFId=
+jndiPath=
+detectM2M=true
+reStrategyClass=
+detectO2O=true
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/MOExamOnline/hibernate.reveng.xml
+configFile=/MOExamOnline/src/hibernate.cfg.xml
+createConfigFile=true
